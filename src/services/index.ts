@@ -1,6 +1,4 @@
 import axios from "axios";
-import { MovieParamsFilterModel } from "./MovieParamsFilter.type";
-import { GetMoviesResPonseModel } from "./Movie.type";
 
 export const BaseService = axios.create({
   baseURL: 'https://api.themoviedb.org/3/',
@@ -9,7 +7,32 @@ export const BaseService = axios.create({
   }
 })
 
-export const getMovies = async (params?: MovieParamsFilterModel) => {
-  const { data } = await BaseService.get<GetMoviesResPonseModel>('discover/movie', { params })
+export interface SearchItemModel {
+  backdrop_path: string
+  id: number,
+  name: string
+  original_name: string
+  overview: string
+  poster_path: string
+  media_type: string
+  adult: false,
+  original_language: string
+  genre_ids: number[],
+  popularity: number,
+  first_air_date: string
+  vote_average: number,
+  vote_count: number,
+  origin_country: string[],
+  title: string,
+}
+
+interface SearchResponseModel {
+  page: number;
+  total: number;
+  results: SearchItemModel[];
+}
+
+export const search = async (query: string) => {
+  const { data } = await BaseService.get<SearchResponseModel>('search/multi', { params: { query } })
   return data
 }
