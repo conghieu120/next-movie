@@ -3,7 +3,7 @@ import SearchItem from "./SearchItem"
 
 const Search = async ({searchParams}: { searchParams: {k: string} }) => {
   const searchResults = await search(searchParams.k)
-  
+
   return (
     <section className="container m-auto">
       <p className="my-4">
