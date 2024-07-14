@@ -7,7 +7,7 @@ const TrendingTv = async () => {
   const trendingTv = await getTrendingTv()
   return (
     <section className='container m-auto p-4'>
-      <p>Tv series hot</p>
+      <h2 className='text-2xl font-bold mb-2'>Trending TV</h2>
       <ul className='flex gap-x-2 w-full overflow-x-auto'>
         {
           trendingTv.results.map((tv) => (

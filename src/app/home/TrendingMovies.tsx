@@ -6,7 +6,7 @@ const TrendingMovies = async () => {
 const trendingMovies = await getTrendingMovies()
   return (
     <section className='container m-auto p-4'>
-      <p>Phim hot</p>
+      <h2 className='text-2xl font-bold mb-2'>Trending movies</h2>
       <ul className='flex gap-x-2 w-full overflow-x-auto'>
         {
           trendingMovies.results.map((movie) => (
