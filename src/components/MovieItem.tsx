@@ -1,11 +1,15 @@
 import { MovieModel } from '@/services/Movie.type'
 import { format } from 'date-fns'
 import Image from 'next/image'
-import React from 'react'
+import Link from 'next/link'
+import slugify from 'slugify'
 
 const MovieItem = ({data}: {data: MovieModel}) => {
   return (
-    <div className='w-40 h-[22rem] overflow-hidden rounded-lg'>
+    <Link
+      className='w-40 h-[22rem] overflow-hidden rounded-lg block'
+      href={'/movie/'+ data.id + '-' + slugify(data.title)}
+    >
       <Image
         width={160}
         height={360}
@@ -25,7 +29,7 @@ const MovieItem = ({data}: {data: MovieModel}) => {
           </p>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 
