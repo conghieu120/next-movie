@@ -3,7 +3,7 @@ import { getTrendingMovies } from '@/services/trendingServices'
 import React from 'react'
 
 const TrendingMovies = async () => {
-  const trendingMovies = await getTrendingMovies()
+const trendingMovies = await getTrendingMovies()
   return (
     <section className='container m-auto p-4'>
       <p>Phim hot</p>

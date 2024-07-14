@@ -1,14 +1,23 @@
-import React from 'react'
+"use client";
+import { FormEventHandler, useState } from "react";
 
 const Search = () => {
-  return (
-    <div className='w-full h-40 bg-green-50 flex items-center justify-center'>
-      <div>
-        <input/>
-        <span>Search</span>
-      </div>
-    </div>
-  )
-}
+  const [search, setSearch] = useState('')
+  const onSearch: FormEventHandler<HTMLFormElement> = (event) => {
+    event.preventDefault();
+  };
 
-export default Search
+  return (
+    <form className="w-full flex justify-center" onSubmit={onSearch}>
+      <input
+        className="w-2/3 h-10 m-auto rounded-3xl p-2 px-6"
+        placeholder="Enter search input"
+        name="search"
+        value={search}
+        onChange={e => setSearch(e.target.value)}
+      />
+    </form>
+  );
+};
+
+export default Search;
