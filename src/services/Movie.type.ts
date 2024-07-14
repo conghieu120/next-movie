@@ -73,3 +73,21 @@ export interface MovieDetailModel {
   vote_average: number
   vote_count: number
 }
+
+export interface MovieReviewsModel {
+  id: number
+  page: number
+  results: {
+    author: string
+    author_details: {
+      name: string
+      username: string
+      rating: number
+    },
+    content: string
+    created_at: string
+    id: string
+    updated_at: string
+    url: string
+  }[]
+}
