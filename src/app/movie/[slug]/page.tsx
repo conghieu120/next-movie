@@ -1,13 +1,20 @@
 import { getMovieByIdService } from '@/services/movieServices'
 import { format } from 'date-fns'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import SimilarMovies from './SimilarMovies'
 import Reviews from './Reviews'
+import SimilarMovies from './SimilarMovies'
+
+export const metadata: Metadata = {
+  title: "Movies name",
+  description: "Movie overview",
+};
 
 const MovieDetail = async ({params}: {params: {slug: string}}) => {
   const [movieId] = params.slug.split('-')
   const movie = await getMovieByIdService(movieId)
+  metadata.title = 'Watch ' + movie.title
 
   return (
     <section>

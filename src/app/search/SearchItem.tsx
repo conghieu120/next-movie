@@ -1,10 +1,15 @@
 import { SearchItemModel } from '@/services'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
+import slugify from 'slugify'
 
 const SearchItem = ({data}: {data: SearchItemModel}) => {
   return (
-    <div className='w-40 h-[22rem] overflow-hidden rounded-lg'>
+    <Link
+      className='w-40 h-[22rem] overflow-hidden rounded-lg block'
+      href={'/movie/'+ data.id + '-' + slugify(data.title || '')}
+    >
       <Image
         width={160}
         height={360}
@@ -22,7 +27,7 @@ const SearchItem = ({data}: {data: SearchItemModel}) => {
           <p>Type: {data.media_type}</p>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 
