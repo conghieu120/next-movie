@@ -39,9 +39,7 @@ export interface MovieDetailModel {
   homepage: string
   id: number
   imdb_id: string
-  origin_country: [
-    "US"
-  ],
+  origin_country: string[],
   original_language: string
   original_title: string
   overview: string
@@ -95,4 +93,22 @@ export interface MovieReviewsModel {
 export interface SimilarMoviesModel {
   page: number,
   results: MovieModel[]
+}
+
+export interface VideoItemModel {
+  iso_639_1: string
+  iso_3166_1: string
+  name: string
+  key: string
+  site: string
+  size: number
+  type: string
+  official: true
+  published_at: string
+  id: string
+}
+
+export interface MovieVideosModel {
+  id: number
+  results: VideoItemModel[]
 }
