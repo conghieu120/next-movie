@@ -1,0 +1,63 @@
+import { getTvDetail } from '@/services/tvServices'
+import { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react'
+
+export const metadata: Metadata = {
+  title: "Movies name",
+  description: "Movie overview",
+};
+
+const TvDetail = async ({params}: {params: {slug: string}}) => {
+  const [tvId] = params.slug.split('-')
+  const tv = await getTvDetail(tvId)
+  metadata.title = 'Watch ' + tv.name
+  return (
+    <section>
+    <div
+      className='h-96 w-full'
+      style={{
+        backgroundImage: 'url(https://image.tmdb.org/t/p/original' + tv.backdrop_path + ')',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+      }}
+    ></div>
+    <div className='px-4 container m-auto my-12 grid grid-cols-3 gap-6'>
+      <div>
+        <Image
+          src={'https://image.tmdb.org/t/p/original' + tv.poster_path}
+          width={500}
+          height={1200}
+          alt={tv.name}
+          className='rounded-xl overflow-hidden'
+        />
+      </div>
+      <div className='col-span-2'>
+        <h1 className='font-bold text-3xl'>{tv.name}</h1>
+
+        <p className='text-sm'>
+          <span>Genres:</span>
+          <span className='ml-1'>{tv.genres.map((genre) => genre.name).join(', ')}</span>
+        </p>
+        <p className='text-sm'>
+          <span>{tv.popularity}</span>
+          <span className='ml-1'>views</span>
+        </p>
+        <div className='grid grid-rows-1 grid-flow-col gap-4 my-2'>
+          <p className='bg-green-600 rounded-3xl overflow-hidden text-center text-white p-2'>{tv.episode_run_time} minutes</p>
+          <p className='bg-green-600 rounded-3xl overflow-hidden text-center text-white p-2'>{tv.vote_average}/10</p>
+          <Link
+            href={tv.homepage}
+            target='_blank'
+            className='bg-green-600 rounded-3xl overflow-hidden text-center text-white p-2'
+          >Home page</Link>
+        </div>
+        <p className='text-pretty text-balance'>{tv.overview}</p>
+      </div>
+    </div>
+  </section>
+  )
+}
+
+export default TvDetail

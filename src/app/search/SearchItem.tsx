@@ -8,7 +8,10 @@ const SearchItem = ({data}: {data: SearchItemModel}) => {
   return (
     <Link
       className='w-40 h-[22rem] overflow-hidden rounded-lg block'
-      href={'/movie/'+ data.id + '-' + slugify(data.title || '')}
+      href={data.media_type === 'tv' ?
+        '/tv/'+ data.id + '-' + slugify(data.name || '') :
+        '/movie/'+ data.id + '-' + slugify(data.title || '')
+      }
     >
       <Image
         width={160}
