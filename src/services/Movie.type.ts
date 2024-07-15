@@ -91,3 +91,8 @@ export interface MovieReviewsModel {
     url: string
   }[]
 }
+
+export interface SimilarMoviesModel {
+  page: number,
+  results: MovieModel[]
+}

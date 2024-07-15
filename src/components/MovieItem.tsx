@@ -25,7 +25,7 @@ const MovieItem = ({data}: {data: MovieModel}) => {
             <span className='ml-1'>views</span>
           </p>
           <p>
-            {format(data.release_date, 'PPP')}
+            {!!data.release_date && format(data.release_date, 'PPP')}
           </p>
         </div>
       </div>

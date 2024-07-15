@@ -1,13 +1,13 @@
-import { getMovieByIdService, getMovieReviews } from '@/services/movieServices'
+import { getMovieByIdService } from '@/services/movieServices'
 import { format } from 'date-fns'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import SimilarMovies from './SimilarMovies'
+import Reviews from './Reviews'
 
 const MovieDetail = async ({params}: {params: {slug: string}}) => {
   const [movieId] = params.slug.split('-')
   const movie = await getMovieByIdService(movieId)
-  const reviews = await getMovieReviews(movieId)
 
   return (
     <section>
@@ -19,7 +19,7 @@ const MovieDetail = async ({params}: {params: {slug: string}}) => {
           backgroundSize: 'cover',
         }}
       ></div>
-      <div className='container m-auto my-12 grid grid-cols-3 gap-6'>
+      <div className='px-4 container m-auto my-12 grid grid-cols-3 gap-6'>
         <div>
           <Image
             src={'https://image.tmdb.org/t/p/original' + movie.poster_path}
@@ -31,7 +31,11 @@ const MovieDetail = async ({params}: {params: {slug: string}}) => {
         </div>
         <div className='col-span-2'>
           <h1 className='font-bold text-3xl'>{movie.title}</h1>
-          <p className='text-sm'>{format(movie.release_date, 'PPPP')}</p>
+          {
+            !!movie.release_date && (
+              <p className='text-sm'>{format(movie.release_date, 'PPPP')}</p>
+            )
+          }
           <p className='text-sm'>
             <span>Genres:</span>
             <span className='ml-1'>{movie.genres.map((genre) => genre.name).join(', ')}</span>
@@ -52,17 +56,8 @@ const MovieDetail = async ({params}: {params: {slug: string}}) => {
           <p className='text-pretty text-balance'>{movie.overview}</p>
         </div>
       </div>
-      <section className='container m-auto my-6'>
-        <h3 className='text-xl font-bold'>Reviews</h3>
-        {
-          reviews.results?.map(review => (
-            <div className='my-2'>
-              <p className='font-bold text-sm'>{review.author}</p>
-              <p className='text-sm text-pretty text-balance'>{review.content}</p>
-            </div>
-          ))
-        }
-      </section>
+      <SimilarMovies movieId={movieId}/>
+      <Reviews movieId={movieId}/>
     </section>
   )
 }
