@@ -1,4 +1,4 @@
-import CardItem from '@/components/MovieItem'
+import CardItem from '@/components/CardItem'
 import { getTrendingMovies } from '@/services/trendingServices'
 import React from 'react'
 
@@ -14,7 +14,15 @@ const trendingMovies = await getTrendingMovies()
               className='flex-shrink-0'
               key={movie.id}
             >
-              <CardItem data={movie}/>
+              <CardItem
+                data={{
+                  id: movie.id,
+                  title: movie.title,
+                  imageSrc: movie.poster_path,
+                  views: movie.popularity,
+                  date: movie.release_date,
+                }}
+              />
             </li>
           ))
         }

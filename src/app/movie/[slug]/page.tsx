@@ -6,7 +6,7 @@ import Link from 'next/link'
 import Reviews from './Reviews'
 import SimilarMovies from './SimilarMovies'
 import Head from 'next/head'
-import Videos from './Videos'
+import Videos from '@/components/Videos'
 
 
 export const metadata: Metadata = {
@@ -37,7 +37,7 @@ const MovieDetail = async ({params}: {params: {slug: string}}) => {
             backgroundSize: 'cover',
           }}
         ></div>
-        <div className='px-4 container m-auto my-12 grid grid-cols-3 gap-6'>
+        <div className='px-4 container m-auto my-12 grid grid-cols-3 gap-6 max-w-5xl'>
           <div>
             <Image
               src={'https://image.tmdb.org/t/p/original' + movie.poster_path}
@@ -74,7 +74,7 @@ const MovieDetail = async ({params}: {params: {slug: string}}) => {
             <p className='text-pretty text-balance'>{movie.overview}</p>
           </div>
         </div>
-        <Videos movieId={movieId}/>
+        <Videos type='movie' id={movieId}/>
         <SimilarMovies movieId={movieId}/>
         <Reviews movieId={movieId}/>
       </section>

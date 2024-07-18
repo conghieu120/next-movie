@@ -5,7 +5,7 @@ const Reviews = async ({movieId}: {movieId: string | number}) => {
   const reviews = await getMovieReviews(movieId)
 
   return (
-    <section className='container m-auto my-6 px-4'>
+    <section className='container m-auto my-6 px-4 max-w-5xl'>
       <h3 className='text-xl font-bold'>Reviews</h3>
       {
         reviews.results?.map(review => (

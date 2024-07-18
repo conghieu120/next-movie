@@ -20,6 +20,17 @@ export interface TvSeasonModel {
 
 }
 
+export interface TvSeason {
+  air_date: string,
+  episode_count: number,
+  id: number,
+  name: string
+  overview: string
+  poster_path: string
+  season_number: number,
+  vote_average: number
+}
+
 export interface TvDetailModel {
   adult: boolean,
   backdrop_path: string
@@ -83,16 +94,7 @@ export interface TvDetailModel {
     iso_3166_1: string
     name: string
   }[],
-  seasons: {
-    air_date: string,
-    episode_count: number,
-    id: number,
-    name: string
-    overview: string
-    poster_path: string
-    season_number: number,
-    vote_average: number
-  }[],
+  seasons: TvSeason[],
   spoken_languages: {
     english_name: string
     iso_639_1: string

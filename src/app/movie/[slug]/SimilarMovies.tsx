@@ -1,6 +1,5 @@
-import MovieItem from '@/components/MovieItem'
+import CardItem from '@/components/CardItem'
 import { getMoviesSimilar } from '@/services/movieServices'
-import React from 'react'
 
 const SimilarMovies = async ({movieId}: {movieId: string | number}) => {
   const similarMovies = await getMoviesSimilar(movieId)
@@ -11,7 +10,15 @@ const SimilarMovies = async ({movieId}: {movieId: string | number}) => {
         {
           similarMovies.results.map(movie => (
             <li key={movie.id} className='flex-shrink-0'>
-              <MovieItem data={movie}/>
+              <CardItem
+                data={{
+                  id: movie.id,
+                  imageSrc: movie.poster_path,
+                  title: movie.title,
+                  views: movie.popularity,
+                  date: movie.release_date
+                }}
+              />
             </li>
           ))
         }
