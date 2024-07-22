@@ -37,14 +37,14 @@ const MovieDetail = async ({params}: {params: {slug: string}}) => {
             backgroundSize: 'cover',
           }}
         ></div>
-        <div className='px-4 container m-auto my-12 grid grid-cols-3 gap-6 max-w-5xl'>
-          <div>
+        <div className='px-4 container m-auto my-12 md:grid md:grid-cols-3 gap-6 max-w-5xl'>
+          <div className='mb-3'>
             <Image
               src={'https://image.tmdb.org/t/p/original' + movie.poster_path}
               width={500}
               height={1200}
               alt={movie.title}
-              className='rounded-xl overflow-hidden'
+              className='rounded-xl overflow-hidden m-auto'
             />
           </div>
           <div className='col-span-2'>
