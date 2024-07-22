@@ -4,22 +4,20 @@ import { getMovieVideos } from '@/services/movieServices'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
-const Videos = ({id, type}: {id: string | number, type: 'movie' | 'tv'}) => {
+const Videos = ({id, type, seasonNumber}: {id: string | number, type: 'movie' | 'tv' | 'season', seasonNumber?: string | number}) => {
   const [videos, setVideos] = useState<VideoItemModel[]>([])
   const [watching, setWatching] = useState<null | VideoItemModel>(null)
+
   const getVideos = async () => {
-    let videos = [] as any []
-    if (type === 'movie') {
-      const { data: videoResults } = await axios.get<MovieVideosModel>('/api/videos?movie=' + id).catch(() => {
-        return { data: null }
-      })
-      videos = videoResults?.results || []
-    } else {
-      const { data: videoResults} = await axios.get<MovieVideosModel>('/api/videos?tv=' + id).catch(() => {
-        return { data: null }
-      })
-      videos = videoResults?.results || []
+    const params = {
+      movie: type === 'movie' ? id : undefined,
+      tv: (type === 'tv' || type === 'season') ? id : undefined,
+      season: seasonNumber,
     }
+    const { data: videoResults } = await axios.get<MovieVideosModel>('/api/videos', { params }).catch(() => {
+      return { data: null }
+    })
+    const videos = videoResults?.results || []
     setVideos(videos || [])
     setWatching(videos[0] || null)
   }
@@ -34,7 +32,7 @@ const Videos = ({id, type}: {id: string | number, type: 'movie' | 'tv'}) => {
           <div key={watching.id} className='mb-4 m-auto w-full'>
             <iframe
               width="100%"
-              height="600"
+              height="500"
               src={`https://www.youtube.com/embed/${watching.key}`}
               title={watching.name}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

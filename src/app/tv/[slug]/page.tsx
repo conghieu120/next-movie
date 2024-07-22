@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import Seasons from './Seasons';
+import SimilarTv from './SimilarTv';
 
 export const metadata: Metadata = {
   title: "View TV Serials",
@@ -62,6 +63,7 @@ const TvDetail = async ({params}: {params: {slug: string}}) => {
         id={tv.id}
       />
       <Seasons data={tv}/>
+      <SimilarTv id={tv.id}/>
     </section>
   )
 }
