@@ -2,7 +2,7 @@ import Link from "next/link"
 
 const Footer = async () => {
   return (
-    <div className='text-small py-8 text-center bg-green-600 text-white'>
+    <div className='text-small py-8 text-center bg-primary text-white'>
       <p>
         <span>Made by</span>
         <Link target="_blank" className="ml-1 underline italic decoration-solid" href='https://github.com/conghieu120'>hieumc</Link>

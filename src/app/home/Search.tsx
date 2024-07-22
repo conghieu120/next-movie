@@ -14,7 +14,7 @@ const Search = () => {
   return (
     <form className="w-full flex justify-center" onSubmit={onSearch}>
       <input
-        className="w-2/3 h-10 m-auto rounded-3xl p-2 px-6"
+        className="w-2/3 h-10 m-auto rounded-3xl p-2 px-6 dark:bg-slate-900"
         placeholder="Search movies, actors, TV shows, ..."
         name="search"
         value={search}

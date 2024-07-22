@@ -19,10 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <section className="px-4 w-screen h-12 bg-green-600 sticky top-0 z-10">
+        <section className="px-4 w-screen h-12 bg-primary sticky top-0 z-10">
           <Header/>
         </section>
-        <section>
+        <section className="dark:bg-slate-950 dark:text-gray-400">
           {children}
         </section>
         <section>
