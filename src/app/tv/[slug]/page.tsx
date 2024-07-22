@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Seasons from './Seasons';
 import SimilarTv from './SimilarTv';
+import { RANDOM_IMAGE } from '@/utils/constant';
 
 export const metadata: Metadata = {
   title: "View TV Serials",
@@ -28,7 +29,7 @@ const TvDetail = async ({params}: {params: {slug: string}}) => {
       <div className='px-4 container m-auto my-12 md:grid md:grid-cols-3 gap-6 max-w-5xl'>
         <div className='mb-3'>
           <Image
-            src={'https://image.tmdb.org/t/p/original' + tv.poster_path}
+            src={tv.poster_path ? 'https://image.tmdb.org/t/p/original' + tv.poster_path : RANDOM_IMAGE}
             width={500}
             height={1200}
             alt={tv.name}

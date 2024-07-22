@@ -7,6 +7,7 @@ import Reviews from './Reviews'
 import SimilarMovies from './SimilarMovies'
 import Head from 'next/head'
 import Videos from '@/components/Videos'
+import { RANDOM_IMAGE } from '@/utils/constant'
 
 
 export const metadata: Metadata = {
@@ -40,7 +41,7 @@ const MovieDetail = async ({params}: {params: {slug: string}}) => {
         <div className='px-4 container m-auto my-12 md:grid md:grid-cols-3 gap-6 max-w-5xl'>
           <div className='mb-3'>
             <Image
-              src={'https://image.tmdb.org/t/p/original' + movie.poster_path}
+              src={movie.poster_path ? 'https://image.tmdb.org/t/p/original' + movie.poster_path : RANDOM_IMAGE}
               width={500}
               height={1200}
               alt={movie.title}

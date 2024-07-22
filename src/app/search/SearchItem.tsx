@@ -1,4 +1,5 @@
 import { SearchItemModel } from '@/services'
+import { RANDOM_IMAGE } from '@/utils/constant'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -16,7 +17,7 @@ const SearchItem = ({data}: {data: SearchItemModel}) => {
       <Image
         width={160}
         height={360}
-        src={'https://image.tmdb.org/t/p/w500' + data.poster_path}
+        src={data.poster_path ? 'https://image.tmdb.org/t/p/w500' + data.poster_path : RANDOM_IMAGE}
         alt={data.poster_path}
         className='overflow-hidden rounded-lg'
       />

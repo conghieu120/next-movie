@@ -1,3 +1,4 @@
+import { RANDOM_IMAGE } from '@/utils/constant';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
@@ -17,7 +18,7 @@ const HorizontalCard = ({ description, imageSrc, shortNote, title, href }: Horiz
         <Image
           width={160}
           height={360}
-          src={'https://image.tmdb.org/t/p/w500' + imageSrc}
+          src={imageSrc ? 'https://image.tmdb.org/t/p/w500' + imageSrc : RANDOM_IMAGE}
           alt={title}
           className='overflow-hidden rounded-lg'
         />
