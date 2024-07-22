@@ -15,7 +15,7 @@ const SeasonDetail = async ({params}: {params: {slug: string}}) => {
           {
             season.episodes.map(ep => (
               <li key={ep.id} className='text-sm mb-4'>
-                <h2 className='font-bold truncate text-green-600 ...'>{ep.name}</h2>
+                <h2 className='font-bold truncate text-green-600 ...'>Episode {ep.episode_number}: {ep.name}</h2>
                 <p className='italic'>{ep.overview}</p>
               </li>
             ))
