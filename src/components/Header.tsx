@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
+import ToggleTheme from './ToggleMode'
 
 const Header = () => {
   return (
@@ -8,6 +9,7 @@ const Header = () => {
         href='/'
         className='text-white font-bold'
       >Home</Link>
+      <ToggleTheme/>
     </div>
   )
 }

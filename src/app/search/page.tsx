@@ -6,7 +6,7 @@ const Search = async ({searchParams}: { searchParams: {k: string} }) => {
 
   return (
     <section className="container m-auto">
-      <p className="my-4">
+      <p className="py-4">
         Search results for: {searchParams.k}
       </p>
       <ul className='flex justify-center gap-x-2 w-full overflow-x-auto flex-wrap'>
