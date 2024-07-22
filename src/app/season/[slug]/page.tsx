@@ -8,7 +8,7 @@ const SeasonDetail = async ({params}: {params: {slug: string}}) => {
   return (
     <>
       <Videos type='season' id={tvId} seasonNumber={seasonNumber}/>
-      <section className='container p-4 m-auto'>
+      <section className='container p-4 m-auto max-w-5xl'>
         <h1 className='text-2xl font-bold'>{season.name}</h1>
         <p className='italic'>{season.overview}</p>
         <ul className='h-80 overflow-auto mt-6'>
