@@ -3,7 +3,7 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 
 const ToggleTheme = () => {
-  const [theme, setTheme] = useState<'' | 'DARK' | any>(localStorage?.getItem('theme') || 'LIGHT')
+  const [theme, setTheme] = useState<'' | 'DARK' | any>(typeof localStorage !== 'undefined' ? localStorage.getItem('theme') || 'LIGHT' : '')
 
   useEffect(() => {
     updateThemToDom(theme)
