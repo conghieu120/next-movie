@@ -26,7 +26,7 @@ const Videos = ({id, type, seasonNumber}: {id: string | number, type: 'movie' | 
   }, [])
 
   return (
-    <section className='container m-auto my-6 px-4'>
+    <section className='container m-auto py-6 px-4'>
       {
         watching && (
           <div key={watching.id} className='mb-4 m-auto w-full'>

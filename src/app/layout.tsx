@@ -7,7 +7,11 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Movies",
+  title: {
+    absolute: '',
+    default: 'Watch hot movie free',
+    template: '%s | watch movie',
+  },
   description: "The best movies view platform",
 };
 
