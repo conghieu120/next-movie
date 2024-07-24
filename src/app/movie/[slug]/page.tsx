@@ -1,34 +1,34 @@
+import Videos from '@/components/Videos'
 import { getMovieByIdService } from '@/services/movieServices'
+import { RANDOM_IMAGE } from '@/utils/constant'
 import { format } from 'date-fns'
-import { Metadata } from 'next'
+import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import Reviews from './Reviews'
 import SimilarMovies from './SimilarMovies'
-import Head from 'next/head'
-import Videos from '@/components/Videos'
-import { RANDOM_IMAGE } from '@/utils/constant'
+import { Metadata } from 'next'
 
-
-export const metadata: Metadata = {
-  title: 'Watch movies',
-  description: 'Watch movies',
+export async function generateMetadata({params}: {params: {slug: string}}): Promise<Metadata> {
+  const [movieId] = params.slug.split('-')
+  const movie = await getMovieByIdService(movieId)
+  return {
+    title: 'Watch ' + movie.title + ' online free',
+    description: movie.overview,
+    openGraph: {
+      images: ['https://image.tmdb.org/t/p/original' + movie.poster_path],
+      title: movie.title,
+      description: movie.overview,
+    }
+  }
 }
 
 const MovieDetail = async ({params}: {params: {slug: string}}) => {
   const [movieId] = params.slug.split('-')
   const movie = await getMovieByIdService(movieId)
 
-  metadata.title = movie.title
-  metadata.description = movie.overview
-
   return (
     <>
-      <Head>
-        <title>{movie.title}</title>
-        <meta name="description" content={movie.overview}></meta>
-        <meta property="og:title" content={movie.overview} key="title" />
-      </Head>
       <section>
         <div
           className='h-96 w-full'

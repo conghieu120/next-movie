@@ -7,15 +7,23 @@ import Seasons from './Seasons';
 import SimilarTv from './SimilarTv';
 import { RANDOM_IMAGE } from '@/utils/constant';
 
-export const metadata: Metadata = {
-  title: "View TV Serials",
-  description: "View TV Serials",
-};
+export async function generateMetadata({params}: {params: {slug: string}}): Promise<Metadata> {
+  const [tvId] = params.slug.split('-')
+  const tv = await getTvDetail(tvId)
+  return {
+    title: 'Watch ' + tv.name,
+    description: tv.overview,
+    openGraph: {
+      title: 'Watch ' + tv.name,
+      description: tv.overview,
+    }
+  }
+}
 
 const TvDetail = async ({params}: {params: {slug: string}}) => {
   const [tvId] = params.slug.split('-')
   const tv = await getTvDetail(tvId)
-  metadata.title = 'Watch ' + tv.name
+
   return (
     <section>
       <div
