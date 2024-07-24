@@ -1,8 +1,7 @@
 "use client"
 import { MovieVideosModel, VideoItemModel } from '@/services/Movie.type'
-import { getMovieVideos } from '@/services/movieServices'
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const Videos = ({id, type, seasonNumber}: {id: string | number, type: 'movie' | 'tv' | 'season', seasonNumber?: string | number}) => {
   const [videos, setVideos] = useState<VideoItemModel[]>([])
