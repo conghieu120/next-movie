@@ -1,36 +1,18 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+[Click here to view demo](https://online-movie-black.vercel.app/home)
 
-First, run the development server:
+## Screenshots
+Home page
+<image src="https://private-user-images.githubusercontent.com/90510441/352321726-df2a13cf-8151-4604-bc4a-7b035529f66c.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjE5NTI3NzksIm5iZiI6MTcyMTk1MjQ3OSwicGF0aCI6Ii85MDUxMDQ0MS8zNTIzMjE3MjYtZGYyYTEzY2YtODE1MS00NjA0LWJjNGEtN2IwMzU1MjlmNjZjLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA3MjYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNzI2VDAwMDc1OVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTJmMzcyYzM0ZWE2MDA1MDFiMzdhODcxNzZjN2JjMzU3YTIyMTE5ZGYzMWNkZDg4MDBhMzVmOWQ0MDA3OWQxNmMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.eJBUNcT8QcG2HtH2bcVOcbAEXo00EdoEDVYv9FL3SC0">
+<br>
+Movie detail
+<image src="https://private-user-images.githubusercontent.com/90510441/352321836-4036e609-6b55-4b57-b9e6-7dd2d9a4ea60.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjE5NTI3NzksIm5iZiI6MTcyMTk1MjQ3OSwicGF0aCI6Ii85MDUxMDQ0MS8zNTIzMjE4MzYtNDAzNmU2MDktNmI1NS00YjU3LWI5ZTYtN2RkMmQ5YTRlYTYwLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA3MjYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNzI2VDAwMDc1OVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWYxYjZjODVmNDk1OWVkZmRmMDJkYmFjOGU0M2JiYzI5NzNiOTIwZDI4ODUwYjNjNmZkOWI0NTg3ZGIyNTkxZjgmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0._l6-U2hvAInt68GB_uHNZXrg6teZo11PuvWJ5i4Q6Mg">
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Library
+- Axios
+- Tailwind
+- NextJS/ReactJS
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Dataset
+Cal api from [ThemovieDB](https://developer.themoviedb.org/reference/intro/getting-started)
